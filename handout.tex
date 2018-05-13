@@ -118,6 +118,7 @@ Dann ist der Attraktor \( A_p \in \mathcal{H}(X) \) stetig von \( p \) mittels d
     \item Konventionelle Speicherung: 1 Byte für 8 Pixel \( \Rightarrow \) \emph{500 mal mehr} (10kB)! \\*
     (200*400 Pixel, je höher desto mehr Bytes werden gebraucht)
   \end{itemize}
+  \marginrule{}
 \end{marginfigure}
 
 \begin{itemize}
@@ -130,7 +131,7 @@ Dann ist der Attraktor \( A_p \in \mathcal{H}(X) \) stetig von \( p \) mittels d
 
 Affine Transformationen eines IFS werden aufgerüstet:
 
-\begin{marginfigure}[10em]
+\begin{marginfigure}
   Trick ist hier also, dass Teilbereiche des Bilds separat transformiert werden.
 
   Neu sind in der formalen Darstellung die Parameter \( f_i \) und \( h_i \), welche für den Kontrast bzw.\@ die Helligkeit zuständig sind.
@@ -160,6 +161,12 @@ Affine Transformationen eines IFS werden aufgerüstet:
 \end{equation*}
 
 \subsection{PIFS bestimmen}
+
+\begin{marginfigure}
+  \includegraphics[width=\linewidth]{lena-pifs}
+  Originalbild und decodiertes Beispielbild nach 1, 2 und 10 Iterationen.
+  \marginrule{}
+\end{marginfigure}
 
 Man kann die Parameter eines PIFS beispielsweise folgendermaßen bestimmen:
 
