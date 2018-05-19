@@ -25,11 +25,8 @@
   \marginrule{}
 \end{marginfigure}
 
-Ein \textbf{echtes Bild} ist nicht direkt mathematisch greifbar --- es ist etwas, dass man irgendwo sehen oder sich zumindest zu sehen vorstellen könnte. Wir nennen
-\begin{itemize}
-  \item \( \mathcal{R} \) die Menge der echten Bilder und
-  \item \( \mathcal{I} \in \mathcal{R} \) ein echtes Bild.
-\end{itemize}
+Ein \textbf{echtes Bild} ist nicht direkt mathematisch greifbar --- es ist etwas, dass man irgendwo sehen oder sich zumindest zu sehen vorstellen könnte. Wir nennen \( \mathcal{R} \) die Menge der echten Bilder und \( \mathcal{I} \in \mathcal{R} \) ein echtes Bild.
+
 Ein solches \( \mathcal{I} \) muss folgende Eigenschaften erfüllen:
 
 \begin{marginfigure}
@@ -39,7 +36,7 @@ Ein solches \( \mathcal{I} \) muss folgende Eigenschaften erfüllen:
 \end{marginfigure}
 
 \begin{enumerate}
-  \item Es besitzt einen \textbf{Träger} \( \largesquare = [a,b] \times [c,d] \subset \R^2 \) und die \textbf{Maße} \( (b-a) \) und \( (d-c) \).
+  \item Es besitzt einen endlichen \textbf{Träger} \( \largesquare = [a,b] \times [c,d] \subset \R^2 \) und die \textbf{Maße} \( (b-a) \) und \( (d-c) \).
 
   \item Es besitzt gewisse \textbf{chromatische Werte} \( c_i: \largesquare \to \R \), welche jedem Punkt des Bildes einen reellwertigen Wert zuordnet.
 
@@ -71,7 +68,9 @@ Ein solches \( \mathcal{I} \) muss folgende Eigenschaften erfüllen:
   \item \textbf{Problem}: Wie bekommt man zu einem gegebenen Bild ein passendes IFS?\@
 \end{itemize}
 
-Das \textbf{Collage-Theorem} erlaubt die Konstruktion von IFS, deren Attraktoren einem gegebenen Bild möglichst genau entsprechen:
+Das \textbf{Collage-Theorem} erlaubt die Konstruktion von IFS, deren Attraktoren einem gegebenen Bild möglichst genau entsprechen.
+
+\emph{\textbf{Satz}}: Es gelten die Voraussetzungen am Rand. Dann gilt:
 \begin{equation*}
   h\left( L,\bigcup_{i=0}^n \Phi_i(L) \right) \leq \epsilon \Rightarrow h(L,A) \leq \frac{\epsilon}{1 - s}
 \end{equation*}
@@ -91,20 +90,22 @@ Ein weiterer wichtiger Satz zur Komprimierung von Bildern ist der Satz über die
 \begin{marginfigure}
   \textbf{Zutaten stetige Abhängigkeit}:
   \begin{itemize}
+    \item \( \left \{ \Phi_1, \dots, \Phi_n \right \} \) IFS
     \item \( (P, d_P) \) metrischer Raum
     \item \( (X,d) \) vollständiger metrischer Raum
     \item \( \Phi: P \times X \to X \) Familie von Kontraktionen auf \( X \)
     \item \( 0 \leq s < 1 \) Kontraktionskoeffizient von \( \Phi(p, \cdot) \)
+    \item \( \Phi(\cdot, x) \) stetig (für jedes \( x \in X \))
   \end{itemize}
 \end{marginfigure}
 
-Für jedes \( x \in X \) sei \( \Phi(\cdot, x) \) stetig. Dann ist der Fixpunkt \( \widetilde{x}(p) \) von \( \Phi \) stetig abhängig von \( p \).
+\emph{\textbf{Satz}}: Es gelten die Voraussetzungen am Rand. Dann ist der Fixpunkt \( \widetilde{x}(p) \) von \( \Phi \) stetig abhängig von \( p \).
 
 Diese Erkenntnis lässt sich eingeschränkt auf Attraktoren übertragen.
 
 \subsection{Attraktor}
 
-Jedes \( \Phi_i \) hänge von \( p \in (P, d_P) \) im Sinne der Einschränkung \( d(\Phi_{i,p}(x), \Phi_{i,q}(x)) \leq k * d_P(p,q) \) für beliebiges \( x \) ab.
+\emph{\textbf{Satz}}: Es gelten weiterhin die Voraussetzungen am Rand. Jedes \( \Phi_i \) hänge von \( p \in P \) im Sinne der Einschränkung \( d(\Phi_{i,p}(x), \Phi_{i,q}(x)) \leq k * d_P(p,q) \), \( q \in P \), für beliebiges \( x \) ab.
 
 Dann ist der Attraktor \( A_p \in \mathcal{H}(X) \) stetig von \( p \) mittels der Hausdorff-Metrik \( h(d) \) abhängig.
 
@@ -116,7 +117,7 @@ Dann ist der Attraktor \( A_p \in \mathcal{H}(X) \) stetig von \( p \) mittels d
     \item Farn kann durch 4 Transformationen erzeugt werden \\*
       \( \to \) es müssen nur 18 Zahlen gespeichert werden \( \Rightarrow \) \emph{\( \sim \) 18 Byte}
     \item Konventionelle Speicherung: 1 Byte für 8 Pixel \( \Rightarrow \) \emph{500 mal mehr} (10kB)! \\*
-    (200*400 Pixel, je höher desto mehr Bytes werden gebraucht)
+    (bei 200*400 Pixel, je höher desto mehr Bytes werden gebraucht)
   \end{itemize}
   \marginrule{}
 \end{marginfigure}
@@ -149,15 +150,15 @@ Affine Transformationen eines IFS werden aufgerüstet:
 \end{enumerate}
 
 \begin{equation*}
-  \Phi_i: \square \supset D_i \to w_i(D_i) \eqqcolon R_i \subset \square, \quad w_i(x,y,z) = \begin{pmatrix}
+  \Phi_i: \square \supset D_i \to w_i(D_i) \eqqcolon R_i \subset \square, \quad w_i(x,y,z) = \left( \begin{smallmatrix}
     a_i & b_i & 0 \\
     c_i & d_i & 0 \\
     0 & 0 & \emph{g_i}
-  \end{pmatrix} * \begin{pmatrix}
+  \end{smallmatrix} \right) * \left( \begin{smallmatrix}
     x \\ y \\ z
-  \end{pmatrix} + \begin{pmatrix}
+  \end{smallmatrix} \right) + \left( \begin{smallmatrix}
     e_i \\ f_i \\ \emph{h_i}
-  \end{pmatrix}
+  \end{smallmatrix} \right)
 \end{equation*}
 
 \subsection{PIFS bestimmen}
@@ -184,9 +185,9 @@ Resultat dieses Algorithmus ist ein PIFS, bestehend aus Transformationen für je
 \begin{marginfigure}
   \textbf{Quellen}:
   \begin{itemize}
-    \item Barnsley --- \textbf{Fractals Everywhere} (1993)
-    \item Barnsley, Hurd --- \textbf{Fractal Image Compression} (1993)
-    \item Fisher --- \textbf{Fractal Image Compression} (1992)
+    \item[(1)] Barnsley --- \textbf{Fractals Everywhere} (1993)
+    \item[(2)] Barnsley, Hurd --- \textbf{Fractal Image Compression} (1993)
+    \item[(3)] Fisher --- \textbf{Fractal Image Compression} (1992)
   \end{itemize}
 \end{marginfigure}
 
